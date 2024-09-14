@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Audio</title>
+</head>
+<body>
+    <h1>Record and Upload Audio</h1>
+
+    <!-- Button to start recording -->
+    <button id="start-record-btn">Start Recording</button>
+    <button id="stop-record-btn" disabled>Stop Recording</button>
+
+    <!-- Display recording controls -->
+    <audio id="audio-playback" controls></audio>
+
+    <!-- Upload button -->
+    <form id="upload-form" method="POST" enctype="multipart/form-data" action="{{ url_for('upload_file') }}">
+        <input type="file" id="audio-file" name="audio-file" hidden>
+        <button type="submit" id="upload-btn" disabled>Upload Audio</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='js/record.js') }}"></script>
+</body>
+</html>
